@@ -1,43 +1,40 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/VzyEqkSI)
-# Exam #4: "Il mio anno in…"
-## Student: s352512 RIZZO GABRIELE 
+
+# Year in Review
 
 ## React Client Application Routes
 
 - Route `/`: 
-  - Contenuto: Home page con lista dei riepiloghi pubblici
-  - Scopo: Landing page dell’app (accessibile anche senza login). Permette di aprire uno slideshow pubblico e, se autenticato, accedere a creazione e profilo.
+  - Content: Home page with a list of public recaps
+  - Purpose: The app’s landing page (accessible without login). It allows users to open a public slideshow and, if authenticated, access creation features and their profile
 - Route `/login`:
-  - Contenuto: Form di login (username/email + password)
-  - Scopo: Autenticazione utente con session cookie (Passport.js).
+  - Content: Login form (username/email + password)
+  - Purpose: User authentication using session cookies (Passport.js).
 - Route `/recaps/:recapId` :
-  - Contenuto: Viewer slideshow del riepilogo selezionato
-  - Scopo: Mostra le pagine (immagine + testi overlay). Accesso consentito se il riepilogo è pubblico oppure se l’utente autenticato è l’autore.
-  - Param: recapId = integer, id del riepilogo.
-
+  - Content: Slideshow viewer of the selected recap
+  - Purpose: Displays the recap pages (image + overlay texts). Access is allowed if the recap is public or if the authenticated user is the author.
+  - Param: recapId = integer, recap ID.
 - Route `/create` :
-  - Contenuto: Scelta sorgente creazione (template oppure clone da riepilogo pubblico)
-  - Scopo: Permette all’utente autenticato di creare un nuovo riepilogo partendo da:
-    - un template (temi presenti: Viaggi o Gin)
-    - un riepilogo pubblico esistente (mantenendo tema e tracciando da chi deriva -> autore).
+  - Content: Creation source selection (template or clone from public recap)
+  - Purpose: Allows authenticated users to create a new recap starting from:
+    - a template (available themes: Travel or Gin)
+    - an existing public recap (keeping the same theme and tracking its origin author).
 - Route `/editor/:recapId` :
-  - Contenuto: Editor del riepilogo (titolo, pagine, testi, visibilità)
-  - Scopo: Modifica completa del riepilogo: cambio immagini (solo del tema), testo per slot, aggiunta/rimozione pagine (min 3), scelta visibilità (public/private).
-  - Param: recapId = integer, id del riepilogo.
+  - Content: Recap editor (title, pages, texts, visibility)
+  - Purpose: Full recap editing: change images (only within the same theme), edit text slots, add/remove pages (minimum 3), and set visibility (public/private).
+  - Param: recapId = integer, recap ID.
 - Route `/profile` :
-  - Contenuto: Area personale con riepiloghi dell’utente (inclusi i privati)
-  - Scopo: Visualizzazione e accesso ai riepiloghi privati (solo owner).
-  
+  - Content: Personal area with user’s recaps (including private ones)
+  - Purpose: Displays and manages the user’s private recaps (owner only).
 - Route `*` :
-  - Contenuto: Not found
-  - Scopo: Catch-all per route non definite.
+  - Content: Not found page
+  - Purpose: Catch-all route for undefined paths.
 
 ## API Server
 
 - POST `/api/sessions`
-  - Parametri / body: username, password
-  - Risposta: oggetto utente autenticato (id, username, name)
-  - Scopo: autenticazione dell’utente tramite Passport.js e cookie di sessione.
+  - Parameters / body: username, password
+  - Response: authenticated user object (id, username, name)
+  - Purpose: user authentication via Passport.js and session cookies.
   ```
   {
   "idUser": 1,
@@ -46,9 +43,9 @@
   }
   ```
 - GET `/api/sessions/current`
-  - Parametri: nessuno
-  - Risposta: oggetto utente autenticato
-  - Scopo: verifica della sessione attiva e recupero dell’utente corrente.
+  - Parameters: none
+  - Response: authenticated user object
+  - Purpose: verifies the active session and retrieves the current user.
   ```
   {
     "idUser": 1,
@@ -57,9 +54,9 @@
   }
   ```
 - DELETE `/api/sessions/current`
-  - Parametri: nessuno
-  - Risposta: oggetto vuoto
-  - Scopo: logout dell’utente e distruzione della sessione.
+  - Parameters: none
+  - Response: empty object
+  - Purpose: logs out the user and destroys the session.
 ```
   {
     "idUser": 1,
@@ -68,9 +65,9 @@
   }
   ```
 - GET `/api/recaps/public`
-  - Parametri: nessuno
-  - Risposta: lista dei riepiloghi pubblici (id, titolo, tema, autore), ed anche da chi deriva un recap se ispirato
-  - Scopo: mostrare i riepiloghi pubblici nella home page, accessibili anche senza autenticazione.
+  - Parameters: none
+  - Response: list of public recaps (id, title, theme, author), including origin data if the recap was derived from another one
+  - Purpose: displays public recaps on the home page, accessible without authentication.
   ```
   {
     "id": 1,
@@ -110,9 +107,9 @@
   },
   ```
 - GET `/api/recaps/:recapId`
-  - Parametri: recapId (integer)
-  - Risposta: riepilogo completo in formato slideshow (pagine, immagini, testi)
-  - Scopo: visualizzare un riepilogo pubblico o un riepilogo privato dell’utente autenticato.
+  - Parameters: recapId (integer)
+  - Response: full recap in slideshow format (pages, images, texts)
+  - Purpose: displays a public recap or a private recap of the authenticated user.
   ```
   {
   "id": 1,
@@ -144,38 +141,38 @@
   }
   ```
 - GET `/api/recaps/:recapId/edit`
-  - Parametri: recapId
-  - Risposta: fondamentalmente risponde con uno stato, 200, 400 (recap non valido), 401 (utente non loggato), 403 (recap non appartenente all'utente loggato), 404 (recap non trovato), 500 (errore db)
-  - Scopo: serve per la pagina di Edit, per definire se l'utente è autenticato e può modificare quel recap
+  - Parameters: recapId
+  - Response: returns a status code (200, 400 invalid recap, 401 not logged in, 403 not owner, 404 not found, 500 db error)
+  - Purpose: used by the Edit page to verify whether the authenticated user can edit the recap
   ```
   {
     "ok": true
   }
   ```
 - POST `/api/recaps`
-  - Parametri / body: sourceType (template o riepilogo pubblico), sourceId, title
-  - Risposta: id del nuovo riepilogo creato
-  - Scopo: creare un nuovo riepilogo partendo da un template o da un riepilogo pubblico di un altro utente.
+  - Parameters / body: sourceType (template or public recap), sourceId, title
+  - Response: id of the newly created recap
+  - Purpose: creates a new recap starting from a template or another user’s public recap.
   ```
   {
   "id": 17
   }
   ```
 - PUT `/api/recaps/:recapId`
-  - Parametri: recapId (integer)
-  - Parametri / body: title, visibility
-  - Risposta: oggetto vuoto
-  - Scopo: aggiornare le informazioni principali del riepilogo (titolo e visibilità).
+  - Parameters: recapId (integer)
+  - Parameters / body: title, visibility
+  - Response: empty object
+  - Purpose: updates the main recap information (title and visibility).
 - PUT `/api/recaps/:recapId/pages`
-  - Parametri: recapId (integer)
-  - Parametri / body: lista delle pagine con immagini e testi
-  - Risposta: oggetto vuoto
-  - Scopo: modificare le pagine del riepilogo (immagini di sfondo e testi).
+  - Parameters: recapId (integer)
+  - Parameters / body: list of pages with images and texts
+  - Response: empty object
+  - Purpose: updates recap pages (background images and texts).
 
 - GET `/api/users/me/recaps`
-  - Parametri: nessuno
-  - Risposta: lista dei riepiloghi creati dall’utente autenticato
-  - Scopo: visualizzare i riepiloghi dell’utente, inclusi quelli privati.
+  - Parameters: none
+  - Response: list of recaps created by the authenticated user
+  - Purpose: displays the user’s recaps, including private ones.
   ```
   {
     "id": 1,
@@ -193,9 +190,9 @@
   }
   ```
 - GET `/api/themes`
-  - Parametri: nessuno
-  - Risposta: lista dei temi disponibili (Viaggi, Gin)
-  - Scopo: recuperare i temi disponibili per la creazione dei riepiloghi.
+  - Parameters: none
+  - Response: list of available themes (Viaggi, Gin)
+  - Purpose: retrieves themes available for recap creation.
   ```
   {
     "id": 1,
@@ -207,9 +204,9 @@
   }
   ```
 - GET `/api/themes/:themeId/images`
-  - Parametri: themeId (integer)
-  - Risposta: immagini predefinite associate al tema
-  - Scopo: fornire le immagini di sfondo selezionabili per un determinato tema.
+  - Parameters: themeId (integer)
+  - Response: predefined images associated with the theme
+  - Purpose: provides selectable background images for a specific theme.
   ```
   {
     "id": 1,
@@ -227,9 +224,9 @@
   }
   ```
 - GET `/api/templates`
-  - Parametri: nessuno
-  - Risposta: lista dei template disponibili con il relativo tema
-  - Scopo: permettere la selezione di un template in fase di creazione del riepilogo.
+  - Parameters: none
+  - Response: list of available templates with their theme
+  - Purpose: allows template selection during recap creation.
   ```
   {
     "id": 1,
@@ -334,41 +331,43 @@
 ## Main React Components
 
 - `Login` (in `Login.jsx`):
-  - Purpose: Gestisce l’autenticazione dell’utente.
-  - Main functionality: Validazione degli input e invio della richiesta di login al server tramite API; aggiorna lo stato di autenticazione dell’applicazione.
+  - Purpose: Handles user authentication.
+  - Main functionality: Validates user inputs and sends the login request to the server via API; updates the application’s authentication state.
 - `NavBar` (in `NavBar.jsx`):
-  - Purpose: Barra di navigazione principale dell’applicazione.
-  - Main functionality: Mostra il nome dell’app, i link principali e, se l’utente è autenticato, il nome dell’utente e il pulsante di logout.
+  - Purpose: Main navigation bar of the application.
+  - Main functionality: Displays the app name, main links, and, if the user is authenticated, the username and the logout button.
 - `ProgressBar` (in `progress.jsx`):
-  - Purpose: Barra di avanzamento delle schermate, prev e next
-  - Main funcionality: Permette di visualizzare l'avanzamento delle Pages nella route RecapViewer e i vari recap nella home, e permette di cliccare su prev o next per muoversi avanti e indietro tra Pages o Public Recap.
+  - Purpose: Progress navigation bar for screens, prev and next.
+  - Main functionality: Allows users to view progression through pages in the RecapViewer route and through recaps on the home page, and enables navigation via prev and next buttons to move forward and backward between pages or public recaps.
 - `StoryGreeting` (in `StoryGreeting`):
-  - Purpose: Capire che in un momento x siamo autenticati con un profilo y
-  - Main functionality: Fondamentalmente ci mostra solo nome e cognome utente ed è un informazione in più che ci indica che siamo autenticati
+  - Purpose: Indicates that at a given moment the user is authenticated with a specific profile.
+  - Main functionality: Displays the user’s first and last name, providing additional confirmation that the user is currently authenticated.
 - `RecapForm` (in `RecapForm.jsx`)
-  - Purpose: Gestire titolo del recap e visibilità sia nella fase di creazione che di modifica di un recap
-  - Main functionality: Tramite api aggiornare il db nel momento in cui si effettuano modifiche su titolo e visibilità del riepilogo. Raccogliere la struttura grafica del form.
+  - Purpose: Manages the recap title and visibility during both creation and editing of a recap.
+  - Main functionality: Updates the database via API whenever changes are made to the recap title and visibility. Handles the layout structure of the form.
 - `PagesEditor` (in `PagesEditor`)
-  - Purpose: Gestire l’editing complessivo delle pagine di un recap.
-  - Main functionality: Renderizza l’elenco delle pagine, valida i requisiti minimi e consente il salvataggio delle modifiche tramite API. 
+  - Purpose: Manages the overall editing of a recap’s pages.
+  - Main functionality: Renders the list of pages, validates minimum requirements, and allows saving changes via API.
 - `PagesCard` (in `PagesCard`)
-  - Purpose: Gestire l’editing di una singola pagina del recap.
-  - Main functionality: Permette la selezione dell’immagine del tema e la modifica dei testi associati, propagando le modifiche al componente padre.
+  - Purpose: Manages the editing of a single recap page.
+  - Main functionality: Allows selection of a theme image and editing of associated texts, propagating changes to the parent component.
 - `RecapViewer` (in `RecapViewer.jsx`)
-  - Purpose: Visualizza un recap in modalità sola lettura.
-  - Main functionality: Mostra le pagine del recap con layout grafico e navigazione sequenziale.
+  - Purpose: Displays a recap in read-only mode.
+  - Main functionality: Shows the recap pages with graphical layout and sequential navigation.
 - `Profile` (in `Profile.jsx`)
-  - Purpose: Mostra i recap appartenenti all’utente autenticato.
-  - Main functionality: Permette la visualizzazione e l’accesso alla modifica dei recap personali.
+  - Purpose: Displays the recaps belonging to the authenticated user.
+  - Main functionality: Allows viewing and editing access to the user’s personal recaps.
+
 - `Home` (in `Home.jsx`)
-  - Purpose: Mostra l’elenco dei recap pubblici disponibili.
-  - Main functionality: Visualizza i recap in modalità “story” con navigazione progressiva.
+  -  Purpose: Displays the list of available public recaps.
+  - Main functionality: Shows recaps in “story” mode with progressive navigation.
 - `Editor` (in `Editor.jsx`)
-  - Purpose: Consente la modifica completa di un recap esistente.
-  - Main functionality: Gestisce metadati e pagine del recap, coordinando caricamento, validazione e salvataggio tramite API.
+  - Purpose: Allows full editing of an existing recap.
+  - Main functionality: Manages recap metadata and pages, coordinating loading, validation, and saving via API.
+
 - `Create` (in `Create.jsx`)
-  - Purpose: Permette la creazione di un nuovo recap partendo da un template o da un recap pubblico.
-  - Main functionality: Invia una richiesta di creazione al backend e reindirizza all’editor del recap creato.
+  - Purpose: Allows the creation of a new recap starting from a template or a public recap.
+  - Main functionality: Sends a creation request to the backend and redirects to the editor of the newly created recap.
 
 ## Screenshot
 Home
@@ -388,9 +387,10 @@ Page not found
 
 ## Users Credentials
 
-- user1, password1 (autore di riepiloghi pubblici e privati sui temi Viaggi e Gin)
-- user2, password2 (include almeno un riepilogo derivato da un riepilogo pubblico di un altro utente)
-- user3, password3 (autore di riepiloghi pubblici visibili nella home page)
+- user1, password1 (author of public and private recaps on the Travel and Gin themes)
+- user2, password2 (includes at least one recap derived from another user’s public recap)
+- user3, password3 (author of public recaps visible on the home page)
+
 
 ## How to run
 
