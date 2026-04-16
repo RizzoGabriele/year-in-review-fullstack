@@ -1,0 +1,142 @@
+.pages-card {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  padding: 12px;
+  background: #e0e0e0;
+}
+
+.pages-card__top {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.pages-card__title {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  font-size: 30px;
+  font-family: "Bebas Neue", sans-serif;
+  gap: 12px;
+}
+
+
+.pages-card__imagepick {
+  margin: 10px 0 12px 0;
+}
+
+.pages-card__imagepick label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.pages-card__imagepick select {
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+}
+
+
+.pages-card__slots {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 10px;
+}
+
+.pages-card__slot label {
+  display: block;
+  margin-bottom: 4px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+}
+
+.pages-card__slot textarea {
+  width: 100%;
+  padding: 6px;
+  font-size: 14px;
+  display: flex;
+  box-sizing: border-box;
+  border-radius: 5px;
+  resize: none;
+}
+
+.pages-card__carousel {
+  margin: 10px 0 12px 0;
+}
+
+.pages-card__carousel-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 22px;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.pages-card__counter {
+  font-size: 22px;
+  font-family: "Bebas Neue", sans-serif;
+  opacity: 0.8;
+}
+
+.pages-card__carousel-body {
+  display: flex;
+  justify-content: center;
+  grid-template-columns: 44px 1fr 44px;
+  align-items: center;
+  gap: 10px;
+}
+.pages-card__arrow {
+  height: 30px;
+  width: 30px;
+  border-radius: 999px;
+  background-color: transparent;
+  font-size: 22px;
+  font-weight: 700;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.pages-card__arrow:hover:not(:disabled) {
+  background: #f0f0f0;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+.pages-card__arrow:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.pages-card__arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pages-card__frame {
+  height: 300px;
+  width:400px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.04);
+  display: grid;
+  place-items: center;
+}
+
+.pages-card__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pages-card__empty {
+  padding: 12px;
+  font-size: 14px;
+  opacity: 0.8;
+}

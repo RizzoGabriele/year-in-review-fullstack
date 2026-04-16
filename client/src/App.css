@@ -1,0 +1,21 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  height: 100%;
+  padding: 0;
+}
+.navbar-position{
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body.no-scroll {
+  overflow-y: hidden;
+}

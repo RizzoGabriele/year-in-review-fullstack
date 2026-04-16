@@ -1,0 +1,70 @@
+.pb {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 30px;
+
+  color: #fff;
+}
+
+.pb-btn {
+  cursor: pointer;
+  border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  background: transparent;
+  color: #fff;
+
+  outline:none;
+  box-shadow:none;
+}
+.pb-btn i {
+  font-size: 25px;
+}
+
+.pb-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.pb-segs {
+  position: absolute;
+  top: 250px;
+  left: 20%;
+  right: 20%;
+  display: flex;
+  gap: 15px;
+}
+.pb-btn:hover,
+.pb-btn:focus,
+.pb-btn:active {
+  border-color: rgba(255, 255, 255, 0.75);
+  outline: none;
+  box-shadow: none;
+}
+
+.pb-seg {
+  flex: 1;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.25);
+  overflow: hidden;
+}
+
+.pb-seg.is-done {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.pb-segfill {
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 999px;
+  transition: width 80ms linear; /* “scorre” fluido */
+}

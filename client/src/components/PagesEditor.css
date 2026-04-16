@@ -1,0 +1,155 @@
+.pages-editor {
+  margin-top: 16px;
+}
+
+.pages-editor__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.pages-editor__actions {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pages-editor__saved {
+  font-size: 30px;
+  position: absolute;
+  right: 550px;
+
+  opacity: 0;
+  animation: showAndHide 1.5s ease forwards;
+}
+
+
+.pages-editor__list {
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.pages-editor__footer{
+    margin-top:20px;
+    display:flex;
+    justify-content: center;
+}
+
+.pages-editor__footer button{
+    padding: 8px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: white;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    color:black;
+    border: 2px solid black;
+    font-size: 20px;
+}
+
+.pages-editor__footer button:hover:not(:disabled) {
+  background: #f0f0f0;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 1);
+}
+
+.pages-editor__footer button:active:not(:disabled) {
+  background: #ddd;
+  transform: translateY(1px);
+  box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+.pages-editor__footer button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pages-card__addIcon {
+  font-size: 64px;      
+  line-height: 1;
+  color: rgba(0,0,0,0.6);
+}
+
+.pages-card__title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-family: "Bebas Neue", sans-serif;
+  min-height: 40px;
+}
+
+.pages-card__delete {
+  position: absolute;
+  right: 0;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.2);
+  background: rgba(255,255,255,0.6);
+
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.pages-card__delete i {
+  font-size: 14px;
+}
+.pages-card__delete:hover {
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+}
+
+
+.pages-card__title-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.pages-card--add:hover .pages-card__addIcon {
+  color: rgba(0,0,0,0.85);
+}
+
+.pages-editor__saveWrapper {
+  display: inline-block;
+}
+
+.pages-editor__saveWrapper[title]:hover {
+  cursor: not-allowed;
+}
+
+.pages-editor__toast {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0,0,0,0.35);
+  z-index: 9999;
+  font-size: 22px;
+  font-weight: 600;
+  color: #fff;
+  animation: fadeInOut 2s ease forwards;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}

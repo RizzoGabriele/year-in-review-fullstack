@@ -1,0 +1,141 @@
+.create {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  background-image: url("/img/bg_create.png");
+  margin: 5% 15%;
+  height: 75%;
+  border-radius: 40px;
+  flex-direction: column;
+  align-items: center;
+  position:relative;
+}
+.create::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/img/bg_create.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 40px;
+  z-index: 0;
+}
+
+.create > * {
+  position: relative;
+  z-index: 1;
+}
+
+.create-header nav a {
+  margin-left: 12px;
+  text-decoration: none;
+}
+.source-type-switch{
+  padding:10px;
+  gap:30px;
+  display: flex;
+  justify-content: center;
+}
+.create-form {
+  width: 350px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+}
+.source-btn{
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+}
+.btn-down{
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+}
+.btn-down,
+.btn-down:hover,
+.btn-down:focus,
+.btn-down:focus-visible {
+  background: black;
+  color: #fff;
+}
+
+.btn-down:disabled {
+    
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-down:focus {
+  outline: none;
+}
+
+.btn-down:focus {
+  outline: none;
+}
+
+
+.source-btn:disabled {
+    
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.source-btn:focus {
+  outline: none;
+}
+.source-btn.active,
+.source-btn.active:hover,
+.source-btn.active:focus,
+.source-btn.active:focus-visible {
+  background: black;
+  color: #fff;
+}
+.source-btn:focus {
+  outline: none;
+}
+.create-form label {
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-top:5px;
+  font-size: 30px;
+  font-family: "VT323", Sans-serif;
+}
+
+.create-form input,
+.create-form select {
+  padding: 6px;
+  font-size: 14px;
+}
+
+.create-form button {
+  padding: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top:20px;
+}
+
+.create-error {
+  color: crimson;
+  display: flex;
+  background-color: white;
+  margin-top: 8px;
+}

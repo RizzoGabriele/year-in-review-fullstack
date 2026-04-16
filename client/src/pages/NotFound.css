@@ -1,0 +1,36 @@
+.notfound {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.notfound-card {
+  padding: 40px 60px;
+  border-radius: 28px;
+
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.6);
+
+  text-align: center;
+  color: #fff;
+  font-family: "VT323", Sans-serif;
+}
+
+.notfound-card h1 {
+  margin: 0;
+  font-size: 96px;
+  letter-spacing: 4px;
+}
+
+.notfound-card p {
+  margin-top: 10px;
+  font-size: 32px;
+  opacity: 0.9;
+}
+

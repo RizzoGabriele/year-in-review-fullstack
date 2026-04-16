@@ -1,0 +1,153 @@
+.editor-section{
+    margin-top:30px;
+}
+.recap-form {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background-color: white;
+  border-radius: 30px;
+  margin: 0 30%;
+}
+
+.recap-form label {
+  font-weight: 700;
+  display: flex;
+  justify-content: center;
+  margin-top:5px;
+  font-size: 23px;
+  font-family: "VT323", Sans-serif;
+}
+
+.recap-form input,
+.recap-form select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.35);
+  color: #fff;
+  outline: none;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.recap-form input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.recap-form input:disabled,
+.recap-form select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.recap-form-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.recap-form-actions button {
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  color:black;
+  border: 2px solid black;
+}
+
+.recap-form-actions button:hover:not(:disabled) {
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.35);
+}
+
+
+
+
+.recap-form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.recap-form-saved {
+  font-size: 30px;
+  position: absolute;
+  right: 550px;
+
+  opacity: 0;
+  animation: showAndHide 1.5s ease forwards;
+}
+
+@keyframes showAndHide {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+}
+
+
+.visibility-toggle {
+  display: flex;
+  gap: 80px;
+  justify-content: center;
+}
+
+.visibility-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(0, 0, 0, 0.25);
+  color: #fff;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  cursor: pointer;
+  appearance: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-appearance: none;
+
+}
+
+
+
+
+.visibility-btn:disabled {
+    
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.visibility-btn:focus {
+  outline: none;
+}
+.visibility-btn.is-active,
+.visibility-btn.is-active:hover,
+.visibility-btn.is-active:focus,
+.visibility-btn.is-active:focus-visible {
+  background: black;
+  color: #fff;
+}
+.visibility-btn:focus {
+  outline: none;
+}

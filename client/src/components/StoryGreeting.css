@@ -1,0 +1,22 @@
+.story-greeting {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 999px;
+
+  color: #fff;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.18);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  text-shadow: 0 2px 10px rgba(0,0,0,0.55);
+}

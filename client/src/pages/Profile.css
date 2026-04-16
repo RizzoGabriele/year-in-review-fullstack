@@ -1,0 +1,54 @@
+.profile {
+  padding: 16px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile-header h2 {
+  margin: 0;
+}
+
+.profile-right {
+  margin-left: auto;
+}
+
+.profile-error {
+  color: crimson;
+}
+
+.profile-list li {
+  margin: 6px 0;
+}
+
+.story-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+
+
+
+.story-badge {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(0,0,0,0.35);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.story-heading{
+  display:grid;
+  font-size: 30px;
+  justify-items: center;
+}

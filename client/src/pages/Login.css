@@ -1,0 +1,149 @@
+.login {
+  padding: 16px;
+  max-width: none;
+  background-color: white;
+  border-radius: 32px;
+  width: 350px;
+  height: 500px;
+  position: relative;
+  z-index: 10;
+}
+.margine{
+  margin: 0 20px;
+  font-family: "VT323", Sans-serif;
+  font-size: 25px;
+}
+.toggle-password{
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  gap: 6px;
+  margin: 0 20px;
+  font-family: Sans-serif;
+}
+.login-input{
+  padding: 12px 14px;
+  margin: 0 20px;
+  border-radius: 6px;
+  height:32px;
+  border: 1px solid #ccc;
+}
+
+.login-bg {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background-image: url("/img/bg_login.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+/* -------- SINISTRA -------- */
+.left-panel {
+  position: relative;
+  padding: 4rem;
+  color: white;
+
+  display: grid;
+  place-items: center; 
+}
+
+
+
+
+/*Aereoplano*/
+.flying-plane {
+  position: fixed;
+  width: 60px;
+  top: 40%;
+  left: 180px;             
+  right: 400px;
+  position:fixed;
+  z-index: 2;
+
+  font-size: 2.5rem;
+  color: white;
+  z-index: 5;
+  animation: flyAcross 15s linear infinite;
+}
+
+@keyframes flyAcross {
+  0% {
+    transform: translate(0, 0) rotate(18deg);
+    opacity: 1;
+  }
+
+ 
+  99.9% {
+    transform: translate(calc(100vw - 400px), -200px) rotate(0deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translate(calc(100vw - 400px), -200px) rotate(0deg);
+    opacity: 0;
+  }
+}
+
+
+/*-------*/
+.login-text {
+  align-self: center;
+  margin-left: 45px;
+  max-width: 500 px;
+}
+
+.login-text h1 {
+  font-size: 5rem;
+  text-align: center;
+  font-family: "VT323", Sans-serif;
+  color: white;
+ 
+  margin-left: 0px;
+  display: inline-block;
+  transform: scaleY(1.5);
+  transform-origin: center;
+}
+
+/* -------- DESTRA -------- */
+.right-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 8vw;
+}
+
+.login-title {
+  margin-bottom: 0px;
+  font-size: 40px;
+  text-align: center;
+  font-family: "VT323", Sans-serif;
+}
+
+.login-form {
+  display: grid;
+  width: 100%;
+  gap: 8px;
+}
+
+.login-form input {
+  padding: 6px 8px;
+  font-size: 15px;
+}
+
+.login-form button {
+  margin-top: 8px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.login-error {
+  margin-top: 12px;
+  color: crimson;
+}

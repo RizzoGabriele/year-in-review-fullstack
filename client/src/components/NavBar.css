@@ -1,0 +1,49 @@
+.pillbar {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  gap: 40px;
+  padding: 10px 20px;
+  z-index: 1000;
+  border: 4px solid white;
+  border-radius: 30px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+
+.pillbar__item {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  line-height: 1;
+  padding: 6px 0;
+  gap: 10px;
+  display: inline-flex;
+  align-items: center;
+}
+
+.pillbar__item i {
+  font-size: 20px;
+}
+
+.pillbar__item:hover {
+  color: white;
+}
+
+.pillbar__item.is-active {
+  color: white;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.pillbar__btn {
+  background: transparent;
+  border: 0;
+  font-size: 20px;
+  padding: 6px 0;  
+  cursor: pointer;
+}
